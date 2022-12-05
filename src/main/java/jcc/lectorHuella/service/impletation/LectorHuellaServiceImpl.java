@@ -20,6 +20,7 @@ public class LectorHuellaServiceImpl implements LectorHuellaService {
         byte[] nuevaHuellaPrueba = Base64.getDecoder()
                 .decode(readAllBytes(Paths.get("static/huella11.txt")));
         byte[] nuevaHuellaCandidata = Base64.getDecoder().decode(huellaCandidata.getBytes());
+        System.out.println(nuevaHuellaCandidata);
         return LectorHuella.FingerImageMatch(nuevaHuellaPrueba, nuevaHuellaCandidata);
     }
 }
