@@ -2,7 +2,6 @@ package jcc.lectorHuella.service.utils;
 
 import com.machinezoo.sourceafis.FingerprintMatcher;
 import com.machinezoo.sourceafis.FingerprintTemplate;
-import jcc.lectorHuella.service.LectorHuellaService;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

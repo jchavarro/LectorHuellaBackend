@@ -1,6 +1,8 @@
 package jcc.lectorHuella.controller;
 
 import jcc.lectorHuella.service.LectorHuellaService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,8 +22,8 @@ public class LectorHuellaController {
     }
 
     @GetMapping("huellas")
-    public boolean validarHuellas(@RequestParam final MultipartFile huellaCandidata) throws IOException {
-        return lectorHuellaService.validarHuella(huellaCandidata);
+    public ResponseEntity<Boolean> validarHuellas(@RequestParam final MultipartFile huellaCandidata) throws IOException {
+        return new ResponseEntity<>(lectorHuellaService.validarHuella(huellaCandidata), HttpStatus.ACCEPTED);
     }
 
 }
