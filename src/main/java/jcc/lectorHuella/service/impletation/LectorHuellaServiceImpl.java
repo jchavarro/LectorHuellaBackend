@@ -15,12 +15,11 @@ import static java.nio.file.Files.readAllBytes;
 public class LectorHuellaServiceImpl implements LectorHuellaService {
 
     @Override
-    public boolean validarHuella(MultipartFile huellaCandidata) throws IOException {
+    public boolean validarHuella(String huellaCandidata) throws IOException {
         //Huella guardada en repo
         byte[] nuevaHuellaPrueba = Base64.getDecoder()
-                .decode(readAllBytes(Paths.get("static/huella11.txt")));
+                .decode(readAllBytes(Paths.get("C:\\Users\\Diego Calvera\\Desktop\\LectorHuellaBackend\\src\\main\\resources\\static\\huella11.txt")));
         byte[] nuevaHuellaCandidata = Base64.getDecoder().decode(huellaCandidata.getBytes());
-        System.out.println(nuevaHuellaCandidata);
         return LectorHuella.FingerImageMatch(nuevaHuellaPrueba, nuevaHuellaCandidata);
     }
 }
